@@ -38,7 +38,7 @@ function draw() {
    fill('rgb(0,255,0)')
    text("PAUSED",width/2,height/2)
    fill('rgb(45,190,45)')
-   text("PAUSED",width/2 + 2,height/2 + 1)
+   text("PAUSED",width/2 + 1,height/2 + 1)
    fill('green')
    text("PAUSED",width/2 + 2,height/2 + 2)
 } else {
