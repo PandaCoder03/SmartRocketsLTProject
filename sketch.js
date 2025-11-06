@@ -14,7 +14,8 @@ var count = 0;
 var target;
 // Max force applied to rocket
 var maxforce = 0.2;
-
+// Pause toggle
+var paused = false
 // Dimensions of barrier
 var rx = 100;
 var ry = 150;
@@ -30,6 +31,17 @@ function setup() {
 }
 
 function draw() {
+ if (paused === true) {
+  textAlign(CENTER,CENTER)
+  textSize(35)
+  textStyle(BOLDITALIC);
+   fill('rgb(0,255,0)')
+   text("PAUSED",width/2,height/2)
+   fill('rgb(45,190,45)')
+   text("PAUSED",width/2 + 2,height/2 + 1)
+   fill('green')
+   text("PAUSED",width/2 + 2,height/2 + 2)
+} else {
   background(0);
   population.run();
   // Displays count to window
@@ -47,4 +59,9 @@ function draw() {
   rect(rx, ry, rw, rh);
   // Renders target
   ellipse(target.x, target.y, 16, 16);
+ }
+}
+function keyPressed() {
+  if(key === 'p')
+    paused = !paused
 }
