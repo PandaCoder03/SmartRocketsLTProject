@@ -16,8 +16,7 @@ function Population() {
     this.rockets[i] = new Rocket();
   }
 
-  this.evaluate = function() {
-
+  this.evaluate = function () {
     var maxfit = 0;
     // Iterate through all rockets and calcultes their fitness
     for (var i = 0; i < this.popsize; i++) {
@@ -42,9 +41,9 @@ function Population() {
         this.matingpool.push(this.rockets[i]);
       }
     }
-  }
+  };
   // Selects appropriate genes for child
-  this.selection = function() {
+  this.selection = function () {
     var newRockets = [];
     for (var i = 0; i < this.rockets.length; i++) {
       // Picks random dna
@@ -58,14 +57,23 @@ function Population() {
     }
     // This instance of rockets are the new rockets
     this.rockets = newRockets;
-  }
+  };
 
   // Calls for update and show functions
-  this.run = function() {
+  this.run = function () {
     for (var i = 0; i < this.popsize; i++) {
       this.rockets[i].update();
       // Displays rockets to screen
       this.rockets[i].show();
     }
-  }
+  };
+  this.anyHits = function () {
+    let hit = false
+    for (var i = 0; i < this.popsize; i++) {
+      if (this.rockets[i].completed) {
+        hit = true;
+      }
+    }
+    return hit;
+  };
 }
