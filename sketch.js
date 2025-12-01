@@ -61,14 +61,14 @@ function keyPressed() {
   if (key === "p") paused = !paused;
   if (key === "f") {
     maxforce += 0.1;
-    console.log("Your current speed is",maxforce*500,"%");
+    console.log("Your current speed is", Math.round(maxforce * 500), "%");
   }
   if (key === "s") {
     maxforce -= 0.1;
-    console.log("Your current speed is",maxforce*500,"%");
+    console.log("Your current speed is", Math.round(maxforce * 500), "%");
   }
   if (key === "d") {
-    console.log("Your current speed is",maxforce*500,"%");
+    console.log("Your current speed is", Math.round(maxforce * 500), "%");
   }
 }
 
