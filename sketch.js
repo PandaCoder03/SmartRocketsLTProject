@@ -49,26 +49,26 @@ function draw() {
     fill(255);
     rect(rx, ry, rw, rh);
     // Renders target
-    if (hit === hit.population) {
+    if (population.anyHits()) {
       fill("lime");
     } else {
       fill(255);
-      ellipse(target.x, target.y, 16, 16);
     }
+    ellipse(target.x, target.y, 16, 16);
   }
 }
 function keyPressed() {
   if (key === "p") paused = !paused;
   if (key === "f") {
     maxforce += 0.1;
-    console.log("Your current speed is", maxforce);
+    console.log("Your current speed is",maxforce*500,"%");
   }
   if (key === "s") {
     maxforce -= 0.1;
-    console.log("Your current speed is", maxforce);
+    console.log("Your current speed is",maxforce*500,"%");
   }
   if (key === "d") {
-    console.log("Your current speed is", maxforce);
+    console.log("Your current speed is",maxforce*500,"%");
   }
 }
 
@@ -82,5 +82,4 @@ function drawPausedScreen() {
   text("PAUSED", width / 2 + 1, height / 2 + 1);
   fill("green");
   text("PAUSED", width / 2 + 2, height / 2 + 2);
-  fill("gray");
 }
